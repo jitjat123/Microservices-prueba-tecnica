@@ -1,5 +1,6 @@
 package com.example.microservice.controller;
 
+import com.example.microservice.model.TextoDTO;
 import com.example.microservice.model.TextoType;
 import com.example.microservice.service.ITextoService;
 import com.example.microservice.validator.TextoValidator;
@@ -20,9 +21,9 @@ public class TextoController {
     }
     
     @PostMapping
-    public ResponseEntity<List<TextoType>> TaskTexto(@RequestBody List<String> requestTexto) {
+    public ResponseEntity<List<TextoType>> TaskTexto(@RequestBody TextoDTO textoDTO) {
 
-        List<TextoType> resultant = textoService.TaskTexto(requestTexto);
+        List<TextoType> resultant = textoService.TaskTexto(textoDTO.getRequestTexto());
         return ResponseEntity.ok(resultant);
 
     }
