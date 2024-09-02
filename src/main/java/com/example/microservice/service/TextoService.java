@@ -16,14 +16,15 @@ public class TextoService implements ITextoService {
         this.textoValidator = textoValidator;
     }
 
-
+    //Funcion que divide el texto en dos partes la anterior y siguiente al '\'
     private TextoType SplitTexto(String linea) {
         String[] split = linea.split("\\\\");
         String text = split[1].replaceAll("[^a-zA-Z ]", "").toLowerCase();
         boolean IsCorrect = split[0].equals(String.valueOf(text.split(" ").length));
         return new TextoType(text, IsCorrect);
     }
-    
+
+    //funcion para procesar el texto
     public List<TextoType> TaskTexto(List<String> requestTexto) {
 
         textoValidator.formatValidator(requestTexto);

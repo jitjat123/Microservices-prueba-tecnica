@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v1.0.0
+  description: API para procesar texto y verificar el número de palabras en una frase
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+paths:
+  /api/texto:
+    post:
+      tags:
+        - texto-controller
+      summary: Procesa el texto y verifica el número de palabras
+      operationId: TaskTexto
+      requestBody:
+        description: Entrada de texto a procesar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextoDTO'
+        required: true
+      responses:
+        '200':
+          description: Respuesta exitosa con el texto procesado y la verificación del número de palabras
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TextoType'
+        '400':
+          description: Solicitud inválida debido a un error de formato
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Formato inválido: falta el carácter '\\'."
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Error inesperado en el servidor."
+components:
+  schemas:
+    TextoDTO:
+      type: object
+      description: Objeto de entrada que contiene el texto a procesar
+      properties:
+        requestTexto:
+          type: array
+          description: Lista de cadenas de texto a procesar
+          items:
+            type: string
+    TextoType:
+      type: object
+      description: Resultado del procesamiento de texto, incluyendo la frase y la verificación de palabras
+      properties:
+        text:
+          type: string
+          description: Texto procesado sin caracteres especiales
+        isCorrect:
+          type: boolean
+          description: Indicador de si el número de palabras en el texto coincide con el número proporcionado

@@ -1,5 +1,6 @@
 package com.example.microservice.validator;
 
+import com.example.microservice.config.InvalidFormatException;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -28,7 +29,7 @@ class TextoValidatorTest {
             "7\\another valid phrase"
         );
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> textoValidator.formatValidator(textoEntrada));
+        Exception exception = assertThrows(InvalidFormatException.class, () -> textoValidator.formatValidator(textoEntrada));
 
         assertEquals("Formato inválido: falta el carácter '\\'.", exception.getMessage());
     }

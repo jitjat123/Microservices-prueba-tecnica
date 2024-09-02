@@ -43,7 +43,7 @@ class TextoControllerTest {
 
     @Test
     void testTaskTexto() throws Exception {
-        String inputJson = "[\"3\\\\the force is strong in this one\",\"7\\\\take what you can give nothing back\",\"5\\\\Here’s looking at you kid.\"]";
+        String inputJson = "{ \"requestTexto\" :[\"3\\\\the force is strong in this one\",\"7\\\\take what you can give nothing back\",\"5\\\\Here’s looking at you kid.\"]}";
         String expectedOutputJson = "[{\"text\":\"the force is strong in this one\",\"isCorrect\":false},{\"text\":\"take what you can give nothing back\",\"isCorrect\":true},{\"text\":\"heres looking at you kid\",\"isCorrect\":true}]";
 
         mockMvc.perform(post("/api/texto")

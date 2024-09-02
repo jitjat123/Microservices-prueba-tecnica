@@ -3,6 +3,7 @@ package com.example.microservice.controller;
 import com.example.microservice.model.TextoDTO;
 import com.example.microservice.model.TextoType;
 import com.example.microservice.service.ITextoService;
+import com.example.microservice.validator.ITextoValidator;
 import com.example.microservice.validator.TextoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,9 @@ public class TextoController {
 
     private final ITextoService textoService;
 
-    public TextoController(ITextoService textoService, TextoValidator textoValidator) {
+
+
+    public TextoController(ITextoService textoService) {
         this.textoService = textoService;
     }
     
