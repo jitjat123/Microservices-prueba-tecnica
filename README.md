@@ -35,6 +35,17 @@ La documentación de la API está disponible a través de Swagger. Una vez que e
 - **Readiness Check**: http://localhost:8080/health/readiness
 
 ## Pruebas
-Para ejecutar las pruebas unitarias y de integración, usa el siguiente comando: **mvn test**
+Para ejecutar las pruebas unitarias, usa el siguiente comando: **mvn test**
+
+## Uso de la API
+- **Endpoint**: http://localhost:8080/api/texto
+- **Metodo HTTP**: `POST`
+- **Ejemplo**: {
+   "requestTexto":[
+        "3\\the force is strong in this one",
+        "7\\take what you can give nothing back",
+        "5\\Here’s looking at you kid."
+        ]
+  
 
 
