@@ -27,7 +27,7 @@ Este es un microservicio de procesamiento de texto desarrollado en Java usando S
 Para ejecutar el microservicio localmente, usa el siguiente comando: **mvn spring-boot:run**
 
 ## Documentación de la API
-La documentación de la API está disponible a través de Swagger. Una vez que el microservicio esté en ejecución, puedes acceder a la documentación en: http://localhost:8080/swagger-ui/
+La documentación de la API está disponible a través de Swagger. Una vez que el microservicio esté en ejecución, puedes acceder a la documentación en: http://localhost:8080/swagger-ui/index.html
 
 ## Health Checks
 
